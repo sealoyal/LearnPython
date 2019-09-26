@@ -1,7 +1,7 @@
 import pandas as pd
-pd.set_option('max_columns', 50)
 import numpy as np
 import matplotlib.pyplot as plt
+pd.set_option('max_columns', 50)
 
 data = {'year': [2010, 2011, 2012, 2011, 2012, 2010, 2011, 2012],
         'team': ['Bears', 'Bears', 'Bears', 'Packers', 'Packers', 'Lions', 'Lions', 'Lions'],
@@ -12,14 +12,14 @@ football = pd.DataFrame(data, columns=['year', 'team', 'wins', 'losses'])
 football
 
 #Processing CSV files
-csv1 = "mariano-rivera.csv"
+csv1 = "data/mariano-rivera.csv"
 fromCSV = pd.read_csv(csv1)
 fromCSV.head()
 
 
 ##CSV
 #Processing another CSV file with defined headers
-csv2 = "peyton-passing-TDs-2012.csv"
+csv2 = "data/peyton-passing-TDs-2012.csv"
 
 cols = ['num', 'game', 'date', 'team', 'home_away', 'opponent',
         'result', 'quarter', 'distance', 'receiver', 'score_before',
