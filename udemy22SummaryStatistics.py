@@ -45,3 +45,73 @@ from IPython.display import YouTubeVideo
 
 #CoVariance
 YouTubeVideo('xGbpuFNR1ME')
+
+#Correlation
+YouTubeVideo('4EXNedimDMs')
+
+#Now lets check correlation and covariance on some stock prices!
+#Pandas can get info off the web
+#Install pandas_datareader first through pip
+from pandas_datareader import data as pdweb
+
+#Set datetime for date input
+import datetime
+
+#Get the closing prices
+start = datetime.datetime(2010, 1, 1)
+end = datetime.datetime(2013, 1, 1)
+
+prices = pdweb.get_data_yahoo(['CVX','XOM','BP'],
+                               start,
+                               end)['Adj Close']
+#Show preview
+prices.head()
+
+#Now lets get the volume trades
+
+volume = pdweb.get_data_yahoo(['CVX','XOM','BP'],
+                               start,
+                               end)['Volume']
+
+#Show preview
+volume.head()
+
+#Lets get the return
+returns = prices.pct_change()
+
+#Show returns
+returns.head()
+
+#Get the correlation of the stocks
+corr = returns.corr
+
+#Show returns
+corr.head()
+
+#Lets see the prices over time to get a very rough idea of the correlation between the stock prices
+prices.plot()
+
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+#As expected pretty strong correlations with each other
+sns.heatmap(returns.corr())
+
+#We'll learn much more about seaborn later!
+
+# We can also check for unique values and their counts
+
+#For example
+ser1 = Series(['w','w','x','y','z','w','w','x','x','y','a','z'])
+
+#Show
+ser1
+
+#Grab the unique values
+ser1.unique()
+
+#Now get the count of the unique values
+ser1.value_counts()
+
+#Next we'll learn how to best deal with missing data!
