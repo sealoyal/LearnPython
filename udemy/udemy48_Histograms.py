@@ -16,6 +16,9 @@ import seaborn as sns
 # Command so that plots appear in the iPython Notebook
 plt.tight_layout()
 
+# Command so that plots appear in the iPython Notebook: Only for Jupter Notebook
+# %matplotlib inline
+
 # First of all, source of information for what a histogram actually is: http://en.wikipedia.org/wiki/Histogram
 
 #Create a random normal-dist dataset
@@ -33,9 +36,9 @@ plt.hist(dataset2,color='indianred')
 # We can use normed to plot on same plot
 
 # Set normed=True for the plots to be normalized in order to comapre data sets with different number of observations
-# Set alpha=0.5 for transperancy
-plt.hist(dataset1,normed=True,color='indianred',alpha=0.5,bins=20)
-plt.hist(dataset2,normed=True,alpha=0.5,bins=20)
+# Set alpha=0.5 for transparency
+plt.hist(dataset1,density=True,color='indianred',alpha=0.5,bins=20)
+plt.hist(dataset2,density=True,alpha=0.5,bins=20)
 
 # Make two more random normal dist data sets
 data1 = randn(1000)
